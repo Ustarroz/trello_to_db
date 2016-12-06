@@ -1,0 +1,23 @@
+version: '2'
+services:
+  web:
+    build: /data/work/js_app
+    image: extractor
+    container_name: extractor
+    ports:
+      - "8000:8000"
+    networks:
+      - extractor
+    hostname: extractor
+
+  db:
+    image: mongodb
+    container_name: extractor_db
+    ports: 
+    - "27017:27017"
+    networks:
+    - extractor
+    hostname: db
+
+networks:
+    extractor:
